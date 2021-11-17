@@ -3,7 +3,7 @@ This script runs the KFL_Website application using a development server.
 """
 
 from os import environ
-from KFL_Website import app
+from src import app
 
 if __name__ == '__main__':
     HOST = environ.get('SERVER_HOST', 'localhost')

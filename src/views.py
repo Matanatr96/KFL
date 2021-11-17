@@ -4,16 +4,20 @@ Routes and views for the flask application.
 
 from datetime import datetime
 from flask import render_template
-from KFL_Website import app
+from src import app
+from src import sleeper_api as sp
 
 @app.route('/')
 @app.route('/home')
 def home():
     """Renders the home page."""
+
+    names = sp.test()
+
     return render_template(
         'index.html',
         title='KFL Official',
-        description='Welcome to the official KFL website!',
+        description=names,
         year=datetime.now().year,
     )
 
