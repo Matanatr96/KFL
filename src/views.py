@@ -4,29 +4,36 @@ Routes and views for the flask application.
 
 from datetime import datetime
 from flask import render_template
-from src import app
-from src import sleeper_api as sp
+from src import app, sleeper_api
+from flask_table import Table, Col
+
+from src.sleeper_api import Sleeper
+
+s = Sleeper()
 
 @app.route('/')
 @app.route('/home')
 def home():
     """Renders the home page."""
 
-    names = sp.test()
-
     return render_template(
         'index.html',
         title='KFL Official',
-        description=names,
         year=datetime.now().year,
     )
 
 @app.route('/rankings')
 def rankings():
     """Renders the contact page."""
+
+    #users = s.getUsers()
+    table = s.getTable()
+
+
     return render_template(
         'rankings.html',
         title='Rankings',
+        table = table,
         year=datetime.now().year,
         message='OFFICIAL RANKINGS OF KFL'
     )
