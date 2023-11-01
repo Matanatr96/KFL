@@ -8,7 +8,7 @@ from dotenv import dotenv_values
 
 config = dotenv_values(".env")
 openai.api_key = config['OPENAI_API_KEY']
-league = League('918363762489450496')
+league = League(config['LEAGUE_ID'])
 
 roster_conversions = ['Mattapalli', 'Komaragiri', 'Idate', 'Bada', 'Digby', 'Nethi', 'Rattan', 'Upadhyaya', 'Aireddy',
                       'Hansen', 'Le', 'Pandya']
